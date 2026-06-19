@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pick List — Curated Finds</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --ink:#1b1f23;
+    --paper:#f7f4ee;
+    --gold:#c08a2e;
+    --line:#1b1f2333;
+    --stamp:#9a3324;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.5;
+  }
+
+  /* Header */
+  header{
+    border-bottom:2px solid var(--ink);
+    padding:28px 24px 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-weight:900;
+    font-size:clamp(28px,5vw,42px);
+    letter-spacing:-0.02em;
+  }
+  .issue{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--ink);
+    opacity:0.6;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+
+  /* Hero */
+  .hero{
+    padding:48px 24px 40px;
+    max-width:760px;
+  }
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(26px,4vw,38px);
+    line-height:1.15;
+    margin-bottom:14px;
+  }
+  .hero p{
+    font-size:16px;
+    opacity:0.75;
+    max-width:560px;
+  }
+
+  /* Grid */
+  .catalog{
+    padding:0 24px 80px;
+    max-width:1100px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(250px,1fr));
+    gap:1px;
+    background:var(--ink);
+    border:1px solid var(--ink);
+  }
+  .card{
+    background:var(--paper);
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    position:relative;
+  }
+  .card .num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    opacity:0.5;
+  }
+  .card img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:contain;
+    background:#fff;
+    border:1px solid var(--line);
+  }
+  .card h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:18px;
+    line-height:1.25;
+  }
+  .card .desc{
+    font-size:13.5px;
+    opacity:0.75;
+    flex-grow:1;
+  }
+  .card .price{
+    font-family:'JetBrains Mono', monospace;
+    font-size:15px;
+    font-weight:700;
+    color:var(--gold);
+  }
+  .card .buy{
+    display:inline-block;
+    text-align:center;
+    background:var(--ink);
+    color:var(--paper);
+    text-decoration:none;
+    font-size:13px;
+    font-weight:600;
+    padding:10px 14px;
+    letter-spacing:0.02em;
+    transition:background 0.15s ease;
+  }
+  .card .buy:hover{ background:var(--stamp); }
+  .card .buy:focus-visible{ outline:3px solid var(--gold); outline-offset:2px; }
+
+  .pick-badge{
+    position:absolute;
+    top:14px;
+    right:14px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    font-weight:700;
+    color:var(--stamp);
+    border:1.5px solid var(--stamp);
+    padding:3px 7px;
+    transform:rotate(4deg);
+    letter-spacing:0.05em;
+  }
+
+  footer{
+    border-top:2px solid var(--ink);
+    padding:24px;
+    font-size:12px;
+    opacity:0.6;
+    text-align:center;
+  }
+  footer a{ color:var(--ink); }
+
+  @media (prefers-reduced-motion: reduce){
+    .card .buy{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">The Pick List</div>
+  <div class="issue">Curated finds, no fluff</div>
+</header>
+
+<section class="hero">
+  <h1>Things worth buying, picked one at a time.</h1>
+  <p>No best-of-50 lists. Just a short, honest shelf of products I'd actually recommend — updated as I find new ones.</p>
+</section>
+
+<section class="catalog">
+
+  <!-- ===== PRODUCT CARD TEMPLATE — duplicate this block for each item ===== -->
+  <div class="card">
+    <span class="pick-badge">Pick</span>
+    <span class="num">01</span>
+    <img src="https://via.placeholder.com/400x400.png?text=Product+Photo" alt="Product name">
+    <h3>Product Name Goes Here</h3>
+    <p class="desc">One or two honest sentences on why this is worth buying — what it's good at, who it's for.</p>
+    <span class="price">$XX.XX</span>
+    <a class="buy" href="#" target="_blank" rel="nofollow sponsored noopener">View on Amazon →</a>
+  </div>
+  <!-- ===== END TEMPLATE ===== -->
+
+  <div class="card">
+    <span class="num">02</span>
+    <img src="https://via.placeholder.com/400x400.png?text=Product+Photo" alt="Product name">
+    <h3>Second Product</h3>
+    <p class="desc">Short, honest description of the product and why it made the list.</p>
+    <span class="price">$XX.XX</span>
+    <a class="buy" href="#" target="_blank" rel="nofollow sponsored noopener">View on Amazon →</a>
+  </div>
+
+  <div class="card">
+    <span class="num">03</span>
+    <img src="https://via.placeholder.com/400x400.png?text=Product+Photo" alt="Product name">
+    <h3>Third Product</h3>
+    <p class="desc">Short, honest description of the product and why it made the list.</p>
+    <span class="price">$XX.XX</span>
+    <a class="buy" href="#" target="_blank" rel="nofollow sponsored noopener">View on Amazon →</a>
+  </div>
+
+  <div class="card">
+    <span class="num">04</span>
+    <img src="https://via.placeholder.com/400x400.png?text=Product+Photo" alt="Product name">
+    <h3>Fourth Product</h3>
+    <p class="desc">Short, honest description of the product and why it made the list.</p>
+    <span class="price">$XX.XX</span>
+    <a class="buy" href="#" target="_blank" rel="nofollow sponsored noopener">View on Amazon →</a>
+  </div>
+
+</section>
+
+<footer>
+  As an Amazon Associate I earn from qualifying purchases. &nbsp;·&nbsp; © 2026 The Pick List
+</footer>
+
+</body>
+</html>
